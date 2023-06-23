@@ -2,10 +2,11 @@ import os
 import openai
 import prompt
 import settings
-
+import streamlit as st
 
 def get_answer(prompt):
-    openai.api_key = settings.openai_api_key
+    openai.api_key = st.secrets["key"]
+
 
     model = 'gpt-3.5-turbo'
     response = openai.ChatCompletion.create(
